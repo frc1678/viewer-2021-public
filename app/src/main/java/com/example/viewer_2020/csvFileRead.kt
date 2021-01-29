@@ -55,5 +55,3 @@ fun csvFileRead(file: String, skipHeader: Boolean): MutableList<String> {
     csvReader.close()
     return csvFileContents
 }
-
-

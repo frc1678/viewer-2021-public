@@ -8,22 +8,14 @@
 
 package com.example.viewer_2020
 
-import android.app.AlertDialog
 import android.os.Bundle
-import android.os.Environment
 import android.view.MenuItem
-import android.view.View
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.viewer_2020.constants.Constants
-import com.example.viewer_2020.constants.Translations
 import com.example.viewer_2020.data.*
-import com.example.viewer_2020.fragments.ranking.RankingListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_ranking.view.*
-import java.io.File
 
 // Main activity class that handles the dual fragment view.
 class MainViewerActivity : ViewerActivity() {
@@ -46,13 +38,6 @@ class MainViewerActivity : ViewerActivity() {
         nav_view.setupWithNavController(findNavController(host))
     }
 
-    fun verifyCSVFileExists(file: String) {
-        val csvFile = File( "/storage/emulated/0/${Environment.DIRECTORY_DOWNLOADS}/$file")
-        if (!csvFile.exists()) {
-            AlertDialog.Builder(this).setMessage("There is no CSV file on this device").show()
-        }
-    }
-
     // Override the onBackPressed to disable the back button as everything is inside fragments.
     override fun onBackPressed() { }
 
@@ -60,7 +45,6 @@ class MainViewerActivity : ViewerActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
-        verifyCSVFileExists("match_schedule.csv")
         setupNavigationController(R.id.nav_host_fragment)
     }
 }

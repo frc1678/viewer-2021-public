@@ -20,8 +20,11 @@ open class ViewerActivity : AppCompatActivity() {
 
     //Begins the intent to the main activity when the long back press is clicked.
     private fun intentToMainViewerActivity() {
-        startActivity(
-            Intent(this, MainViewerActivity::class.java),
-            ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+            startActivity(
+                    Intent(
+                            this,
+                            MainViewerActivity::class.java
+                    ), ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+            )
     }
 }
