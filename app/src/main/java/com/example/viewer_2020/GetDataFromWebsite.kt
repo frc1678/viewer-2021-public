@@ -39,7 +39,7 @@ class GetDataFromWebsite(val onCompleted: () -> Unit = {} ,val onError: (error: 
             //pull the data from the website and then add it to the databaseReference variable
             for (x in 0..8) {
                 val result =
-                    sendRequest("https://cardinal.citruscircuits.org/cardinal/api/collection/${listOfCollectionNames[x]}/")
+                    sendRequest("<link to pull collections from Cardinal here>")
                 when (x) {
                     0 -> databaseReference?.raw_obj_pit = Gson().fromJson(
                         result.toString(),
@@ -81,7 +81,7 @@ class GetDataFromWebsite(val onCompleted: () -> Unit = {} ,val onError: (error: 
             }
 
             val rawMatchSchedule: MutableMap<String, Website.WebsiteMatch> = Gson().fromJson(
-                sendRequest("https://cardinal.citruscircuits.org/cardinal/api/match-schedule/2021mttd/?format=json"),
+                sendRequest("<link to pull match schedule here>"),
                 WebsiteMatchSchedule
             )
             for (i in rawMatchSchedule) {
@@ -105,7 +105,7 @@ class GetDataFromWebsite(val onCompleted: () -> Unit = {} ,val onError: (error: 
                     .toMap().toMutableMap()
 
             MainViewerActivity.teamList = Gson().fromJson(
-                sendRequest("https://cardinal.citruscircuits.org/cardinal/api/teams-list/2021mttd/?format=json"),
+                sendRequest("<link to pull team list here>"),
                 WebsiteTeams
             )
 
